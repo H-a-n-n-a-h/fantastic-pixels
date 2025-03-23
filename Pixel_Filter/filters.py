@@ -2,6 +2,12 @@ import cv2
 import numpy as np
 from datetime import datetime 
 
+# Quick saving with timestamp
+def save_with_timestamp(img, name = "filtered"):
+    time_stamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    image_out_path = name+"_"+time_stamp+".png"
+    cv2.imwrite(image_out_path, img)
+
 #Multiplies rgb values globally
 def adjust_rgb(input: np.ndarray, red: float, green: float, blue: float) -> np.ndarray:
     size = (input.shape[0], input.shape[1], input.shape[2])
